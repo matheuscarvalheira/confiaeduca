@@ -17,9 +17,9 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
-                <GlobalStyled />
-                {children}
-                <ToastContainer />
+            <GlobalStyled />
+              {children}
+              <ToastContainer />
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
