@@ -2,6 +2,7 @@ import 'styled-components';
 
 export const theme = {
   black: '#000000',
+  shadowBlack: '#00000070',
   greenScreamin: '#86FF73',
   indigoLavander: '#9747FF',
   begonia: '#FF7373',
