@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 interface CustomHeaderProps {
   title: string;
@@ -38,7 +38,11 @@ const Subtitle = styled.h2`
   font-size: smaller;
 `;
 
-const CustomHeader: React.FC<CustomHeaderProps> = ({ title, subtitle, showArrow }) => {
+const CustomHeader: React.FC<CustomHeaderProps> = ({
+  title,
+  subtitle,
+  showArrow,
+}) => {
   return (
     <Container>
       {showArrow && <ArrowImage src="/svg/arrow.svg" alt="Arrow" />}
