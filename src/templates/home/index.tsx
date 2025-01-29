@@ -1,4 +1,7 @@
 import CustomHeader from "@/components/CustomHeader";
+import FavoriteButton from "@/components/FavoriteButton";
+import LikeButton from "@/components/LikeButton/indext";
+import SaveButton from "@/components/SaveButton";
 import { Modal } from "@/components/modal";
 import { theme } from "@/styles/theme";
 import { FC, useState } from "react";
@@ -33,6 +36,9 @@ export const HomeTemplate: FC = () => {
       <Modal isOpen={modalIsOpen} handleOpen={setModalIsOpen}>
         <p>Teste Modal Ok!</p>
       </Modal>
+      <LikeButton />
+      <SaveButton />
+      <FavoriteButton/>
     </div>
   );
 };
