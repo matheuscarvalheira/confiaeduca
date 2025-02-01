@@ -74,12 +74,12 @@ export const HomeTemplate = () => {
         subtitle="Selecione a turma desejada"
       />
       <ButtonsContainer>
-        {classList.map((button, index) => (
+        {classList.map((classItem, index) => (
           <ButtonCard
-            key={`bt-${index}`}
-            onClick={() => router.push(button.id)}
+            key={`class-${index}`}
+            onClick={() => router.push(classItem.id)}
           >
-            <ButtonTitle>{button.title}</ButtonTitle>
+            <ButtonTitle>{classItem.title}</ButtonTitle>
           </ButtonCard>
         ))}
       </ButtonsContainer>
