@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { StyledComponentsRegistry } from "@/lib/registry";
 import { GlobalStyled } from "@/styles/global";
 import { theme } from "@/styles/theme";
@@ -21,7 +22,7 @@ const BackgroundContainer = styled.div`
   img {
     position: absolute;
     pointer-events: none;
-    transform: scale(.5);
+    transform: scale(0.5);
   }
 
   .shape1 {
@@ -51,7 +52,7 @@ const BackgroundContainer = styled.div`
   .shape4 {
     bottom: -2%;
     right: 0;
-    transform: scale(.4);
+    transform: scale(0.4);
     @media screen and (max-width: 760px) {
       right: -130px;
     }
@@ -63,6 +64,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/login";
+
   return (
     <html lang="pt-br">
       <body>
@@ -76,37 +80,39 @@ export default function RootLayout({
                 flexDirection: "column",
               }}
             >
-              <BackgroundContainer>
-                <Image
-                  src="./svg/bg_shape1.svg"
-                  alt="Shape 1"
-                  className="shape1"
-                  width={300}
-                  height={300}
-                />
-                <Image
-                  src="./svg/bg_shape2.svg"
-                  alt="Shape 2"
-                  className="shape2"
-                  width={400}
-                  height={400}
-                />
-                <Image
-                  src="./svg/bg_shape3.svg"
-                  alt="Shape 3"
-                  className="shape3"
-                  width={500}
-                  height={500}
-                />
-                <Image
-                  src="./svg/bg_shape4.svg"
-                  alt="Shape 4"
-                  className="shape4"
-                  width={500}
-                  height={500}
-                />
-              </BackgroundContainer>
-              <Header />
+              {!isLoginPage && (
+                <BackgroundContainer>
+                  <Image
+                    src="./svg/bg_shape1.svg"
+                    alt="Shape 1"
+                    className="shape1"
+                    width={300}
+                    height={300}
+                  />
+                  <Image
+                    src="./svg/bg_shape2.svg"
+                    alt="Shape 2"
+                    className="shape2"
+                    width={400}
+                    height={400}
+                  />
+                  <Image
+                    src="./svg/bg_shape3.svg"
+                    alt="Shape 3"
+                    className="shape3"
+                    width={500}
+                    height={500}
+                  />
+                  <Image
+                    src="./svg/bg_shape4.svg"
+                    alt="Shape 4"
+                    className="shape4"
+                    width={500}
+                    height={500}
+                  />
+                </BackgroundContainer>
+              )}
+              {!isLoginPage && <Header />}
               <main style={{ flexGrow: 1, padding: "20px" }}>{children}</main>
             </div>
             <ToastContainer />
