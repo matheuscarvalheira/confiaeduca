@@ -6,6 +6,7 @@ export const WrapperScroll = styled.div`
   margin: 0 auto;
   margin-top: 40px;
   overflow-y: auto;
+  padding-right: 10px;
 
   @media (max-width: 600px) {
     width: 95%;
