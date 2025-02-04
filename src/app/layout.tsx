@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Header } from "@/components/Header";
 import Image from "next/image";
+import { AuthProvider } from "@/contexts/auth-context";
 
 const BackgroundContainer = styled.div`
   position: fixed;
@@ -22,6 +23,7 @@ const BackgroundContainer = styled.div`
   img {
     position: absolute;
     pointer-events: none;
+    transform: scale(0.5);
     transform: scale(0.5);
   }
 
@@ -93,6 +95,7 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
+            <AuthProvider>
             <GlobalStyled />
             <div
               style={{
@@ -137,6 +140,7 @@ export default function RootLayout({
               <main style={{ flexGrow: 1, padding: "20px" }}>{children}</main>
             </div>
             <ToastContainer />
+            </AuthProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
