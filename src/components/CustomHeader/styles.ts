@@ -7,11 +7,12 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  padding: 20px;
+  width: 80%;
 
   @media (max-width: 600px) {
-    padding: 10px;
+    width: 95%;
   }
+  
 `;
 
 export const TextContainer = styled.div`
@@ -20,15 +21,9 @@ export const TextContainer = styled.div`
 
 export const ArrowImage = styled.img`
   position: absolute;
-  bottom: -50px;
-  left: 100px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-
-  @media (max-width: 600px) {
-    bottom: -30px;
-    left: 50px;
-  }
+  padding: 5px;
+  left: -5px;
+  cursor: pointer;
 `;
 
 export const Title = styled.h1`

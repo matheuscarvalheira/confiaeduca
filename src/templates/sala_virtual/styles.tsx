@@ -14,15 +14,6 @@ export const ContentContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 1000px;
-`;
-
-export const ItemsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
 `;
 
 export const ItemsContainer = styled.div`
@@ -36,6 +27,12 @@ export const ItemsContainer = styled.div`
   padding: 10px;
   margin-top: 15px;
   cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+ 
 `;
 
 export const ItemTitle = styled.p`
@@ -48,14 +45,18 @@ export const ItemSubTitle = styled.p`
 `;
 
 export const ButtonContainer = styled.div`
-  width: 100%;
+  width: 75%;
   bottom: 0;
   display: flex;
-  max-width: 1000px;
-  padding: 15px 0px;
+  padding: 15px 10px;
   position: absolute;
   justify-content: flex-end;
   background-color: ${theme.white};
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+
 `;
 
 export const ModalContainer = styled.div`

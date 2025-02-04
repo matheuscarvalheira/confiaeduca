@@ -10,33 +10,23 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1024px;
-  margin-top: 20px;
-  align-items: center;
-`;
-
 export const ListItem = styled.div`
   display: flex;
   align-items: center;
   background-color: ${theme.cultured};
   color: ${theme.black};
   width: 100%;
-  max-width: 1002px;
   height: 81px;
   margin-bottom: 10px;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${theme.indigoLavander};
-    color: ${theme.white};
-    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 `;
 

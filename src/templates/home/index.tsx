@@ -77,7 +77,7 @@ export const HomeTemplate = () => {
         {classList.map((classItem, index) => (
           <ButtonCard
             key={`class-${index}`}
-            onClick={() => router.push(classItem.id)}
+            onClick={() => router.push(`/sala_virtual?${classItem.id}`)}
           >
             <ButtonTitle>{classItem.title}</ButtonTitle>
           </ButtonCard>

@@ -62,7 +62,7 @@ export const SalaVirtualTemplate: FC = () => {
 
   return (
     <S.SalaVirtual>
-      <CustomHeader title={"Sala Virtual"} subtitle={"5 A - Fundamental 1"}/>
+      <CustomHeader title={"Sala Virtual"} subtitle={"5 A - Fundamental 1"} showArrow={true}/>
       <WrapperScroll>
         <Accordion
           items={items}

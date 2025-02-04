@@ -1,6 +1,7 @@
 import { FC } from "react";
 import * as S from "./styles";
 import CustomHeader from "@/components/CustomHeader";
+import { WrapperScroll } from "@/components/wrapperScroll";
 
 const savedItems = [
   { id: "1", title: "Mathematics" },
@@ -17,15 +18,15 @@ export const FavoritesTemplate: FC = () => {
       <CustomHeader
         title="Itens salvos"
         subtitle="Selecione a turma desejada"
-        showArrow={false}
+        showArrow={true}
       />
-      <S.List>
+      <WrapperScroll>
         {savedItems.map((item) => (
           <S.ListItem key={item.id}>
             <S.ItemName>{item.title}</S.ItemName>
           </S.ListItem>
         ))}
-      </S.List>
+      </WrapperScroll>
     </S.Container>
   );
 };
