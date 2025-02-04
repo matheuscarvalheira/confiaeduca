@@ -31,6 +31,9 @@ const BackgroundContainer = styled.div`
     @media screen and (max-width: 760px) {
       left: -70px;
     }
+    @media screen and (max-height: 720px) {
+      top: 0%;
+    }
   }
 
   .shape2 {
@@ -38,6 +41,9 @@ const BackgroundContainer = styled.div`
     right: 0;
     @media screen and (max-width: 760px) {
       right: -100px;
+    }
+    @media screen and (max-height: 720px) {
+      top: 0%;
     }
   }
 
@@ -47,6 +53,12 @@ const BackgroundContainer = styled.div`
     @media screen and (max-width: 760px) {
       left: -100px;
     }
+    @media screen and (max-height: 720px) {
+      bottom: -8%;
+    }
+    @media screen and (max-height: 566px) {
+      bottom: -18%;
+    }
   }
 
   .shape4 {
@@ -55,6 +67,12 @@ const BackgroundContainer = styled.div`
     transform: scale(0.4);
     @media screen and (max-width: 760px) {
       right: -130px;
+    }
+    @media screen and (max-height: 720px) {
+      bottom: -10%;
+    }
+    @media screen and (max-height: 566px) {
+      bottom: -20%;
     }
   }
 `;
