@@ -23,6 +23,7 @@ export const LoginTemplate: FC = () => {
         <S.Input
           as={CustomInput}
           id="password"
+          type="password"
           placeholder="Digite sua senha"
         />
         <S.ForgotPassword onClick={() => setModalIsOpen(true)}>

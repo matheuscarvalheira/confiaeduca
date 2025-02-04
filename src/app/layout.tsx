@@ -84,6 +84,9 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isLoginPage = pathname === "/login";
+  const isSavedListPage = pathname === "/favorites";
+
+  const isStudentProfile = true;
 
   return (
     <html lang="pt-br">
@@ -98,7 +101,7 @@ export default function RootLayout({
                 flexDirection: "column",
               }}
             >
-              {!isLoginPage && (
+              {!isLoginPage && !isSavedListPage && (
                 <BackgroundContainer>
                   <Image
                     src="./svg/bg_shape1.svg"
@@ -130,7 +133,7 @@ export default function RootLayout({
                   />
                 </BackgroundContainer>
               )}
-              {!isLoginPage && <Header />}
+              {!isLoginPage && <Header showFavorites={isStudentProfile} />}
               <main style={{ flexGrow: 1, padding: "20px" }}>{children}</main>
             </div>
             <ToastContainer />
