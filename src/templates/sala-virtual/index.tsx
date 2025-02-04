@@ -1,9 +1,10 @@
 import { Accordion } from "@/components/accordion";
-import { FC } from "react";
+import { FC, useContext } from "react";
 import * as S from './styles'
 import { WrapperScroll } from "@/components/wrapperScroll";
 import { Header } from "@/components/Header";
 import CustomHeader from "@/components/CustomHeader";
+import { AuthContext } from "@/contexts/auth-context";
 
 export const SalaVirtualTemplate: FC = () => {
   const items = [
@@ -56,6 +57,9 @@ export const SalaVirtualTemplate: FC = () => {
       resposta: 'resposta'
     }
   ]
+
+    // const {useType} = useContext(AuthContext);
+
   return (
     <S.SalaVirtual>
       <CustomHeader title={"Sala Virtual"} subtitle={"5 A - Fundamental 1"}/>
