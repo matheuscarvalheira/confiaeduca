@@ -2,6 +2,7 @@ import CustomHeader from "@/components/CustomHeader";
 import FavoriteButton from "@/components/FavoriteButton";
 import LikeButton from "@/components/LikeButton/indext";
 import SaveButton from "@/components/SaveButton";
+import { Accordion } from "@/components/accordion";
 import { Modal } from "@/components/modal";
 import { theme } from "@/styles/theme";
 import { FC, useState } from "react";
@@ -32,13 +33,13 @@ export const HomeTemplate: FC = () => {
         Abre Modal
       </button>
 
-      <CustomHeader title="Bem vindo, professor" subtitle="Selecione a turma desejada" showArrow={true} />
+      {/* <CustomHeader title="Bem vindo, professor" subtitle="Selecione a turma desejada" showArrow={true} />
       <Modal isOpen={modalIsOpen} handleOpen={setModalIsOpen}>
         <p>Teste Modal Ok!</p>
       </Modal>
       <LikeButton />
       <SaveButton />
-      <FavoriteButton/>
+      <FavoriteButton/> */}
     </div>
   );
 };
