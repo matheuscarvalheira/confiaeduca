@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/contexts/auth-context";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -47,18 +48,20 @@ interface HeaderProps {
   showFavorites?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ showFavorites = false }) => {
+export const Header: React.FC<HeaderProps> = () => {
+  
   const router = useRouter();
+  const { logOut, userType } = useContext(AuthContext)
 
   const handleLogout = () => {
-    console.log("User logged out");
+    logOut();
   };
 
   return (
     <HeaderContainer>
       <Logo onClick={() => router.push("/")}>ConfiaEduca</Logo>
       <ButtonContainer>
-        {showFavorites && (
+        {userType == 'aluno' && (
           <StarButton onClick={() => router.push("/favorites")}>
             <StarIcon src="./svg/favorite-filled.svg" alt="Favorites" />
           </StarButton>

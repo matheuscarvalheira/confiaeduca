@@ -1,41 +1,49 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import * as S from "./styles"
 import CustomHeader from "@/components/CustomHeader";
 import { Button } from "@/components/button";
 import { theme } from "@/styles/theme";
 import { Modal } from "@/components/modal";
 import { Input as CustomInput } from "@/components/input";
+import { AuthContext } from "@/contexts/auth-context";
+import { useRouter } from "next/navigation";
+import { WrapperScroll } from "@/components/wrapperScroll";
 
 export const SalaVirtualTamplate: FC = () => {
 
-    const [userType, setUserType] = useState('P');
+    const router = useRouter();
+    const { userType } = useContext(AuthContext);
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
-
     const [modalTitle, setModalTitle] = useState('')
 
+    /* DADOS MOCKADOS */
     const [items, setItems] = useState([
         { key: 1, title: "Geometria", subTitle: "07/03/2025" },
         { key: 2, title: "Equação de segundo grau", subTitle: "05/03/2025" },
         { key: 3, title: "Álgebra", subTitle: "28/02/2025" }
     ]);
 
-    const title = userType == 'P' ? "Salas" : "Aulas";
-    const subTitle = userType == 'P' ? "5A - Fundamental 1" : "Matemática";
+    const title = userType == 'professor' ? "Salas" : "Aulas";
+    const subTitle = userType == 'professor' ? "5A - Fundamental 1" : "Matemática";
+    /* DADOS MOCKADOS */
     
     return(
         <S.MainContainer>
             <CustomHeader title={title} subtitle={subTitle} showArrow={true} />
             <S.ContentContainer>
-                <S.ItemsWrapper>
+                <WrapperScroll>
                     {items.map(({key, title, subTitle}) => (
-                        <S.ItemsContainer key={key}>
+                        <S.ItemsContainer
+                            key={key}
+                            onClick={() => {router.push(`/sala-virtual?${key}`)}}
+                        >
                             <S.ItemTitle>{title}</S.ItemTitle>
                             <S.ItemSubTitle>{subTitle}</S.ItemSubTitle>
                         </S.ItemsContainer>
                     ))}
-                </S.ItemsWrapper>
-                { userType == 'P' &&
+                </WrapperScroll>
+                { userType =='professor' &&
                     <S.ButtonContainer>
                         <Button 
                             text="Abrir nova sala virtual"

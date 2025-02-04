@@ -88,8 +88,6 @@ export default function RootLayout({
   const isLoginPage = pathname === "/login";
   const isSavedListPage = pathname === "/favorites";
 
-  const isStudentProfile = true;
-
   return (
     <html lang="pt-br">
       <body>
@@ -136,7 +134,7 @@ export default function RootLayout({
                   />
                 </BackgroundContainer>
               )}
-              {!isLoginPage && <Header showFavorites={isStudentProfile} />}
+              {!isLoginPage && <Header/>}
               <main style={{ flexGrow: 1, padding: "20px" }}>{children}</main>
             </div>
             <ToastContainer />
