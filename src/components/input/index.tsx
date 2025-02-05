@@ -1,4 +1,3 @@
-'use client';
 import React, { useState } from 'react';
 import { InputProps } from './props';
 import * as S from './styles';

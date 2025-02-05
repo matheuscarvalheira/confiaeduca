@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { TextareaProps } from './props';
 import * as S from "./styles"
