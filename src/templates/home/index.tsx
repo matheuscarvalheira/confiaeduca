@@ -2,7 +2,9 @@
 import CustomHeader from "@/components/CustomHeader";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "@/contexts/auth-context";
+
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -33,8 +35,9 @@ const ButtonTitle = styled.h3`
 `;
 
 export const HomeTemplate = () => {
-  const [isTeacher, _] = useState(false);
   const router = useRouter();
+
+  const {userType} = useContext(AuthContext);
 
   const classesTeacher = [
     { id: "e8fc0e3a-16e0-45c6-a1e8-e4a7ee048dd0", title: "5°A Matematica" },
@@ -55,7 +58,7 @@ export const HomeTemplate = () => {
     { id: "a53824d9-c60e-4321-a0a9-54aa975cc2a3", title: "Ciências" },
   ];
 
-  const classList = isTeacher ? classesTeacher : classesStudent;
+  const classList = userType === 'professor' ? classesTeacher : classesStudent;
 
   return (
     <div
@@ -70,14 +73,14 @@ export const HomeTemplate = () => {
       }}
     >
       <CustomHeader
-        title={`Bem vindo, ${isTeacher ? "Professor" : "Aluno"}!`}
+        title={`Bem vindo, ${userType === 'professor' ? "Professor" : "Aluno"}!`}
         subtitle="Selecione a turma desejada"
       />
       <ButtonsContainer>
         {classList.map((classItem, index) => (
           <ButtonCard
             key={`class-${index}`}
-            onClick={() => router.push(`/sala_virtual?${classItem.id}`)}
+            onClick={() => router.push(`/salas?${classItem.id}`)}
           >
             <ButtonTitle>{classItem.title}</ButtonTitle>
           </ButtonCard>

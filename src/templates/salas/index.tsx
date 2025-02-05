@@ -9,7 +9,7 @@ import { AuthContext } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 import { WrapperScroll } from "@/components/wrapperScroll";
 
-export const SalaVirtualTamplate: FC = () => {
+export const SalaTamplate: FC = () => {
 
     const router = useRouter();
     const { userType } = useContext(AuthContext);
