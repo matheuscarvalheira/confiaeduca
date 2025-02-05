@@ -1,4 +1,4 @@
-export interface InputProps {
+export interface InputQuestionProps {
   placeholder?: string;
   showIcon?: boolean;
   type?: string

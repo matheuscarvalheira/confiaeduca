@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 
-export const InputContainer = styled.div`
-  width: 100%;
+export const InputQuestionContainer = styled.div`
+  width: 78%;
   position: relative;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${({theme}) => theme.cultured};
+  padding: 5px 25px;
+  border-radius: 15px;
 `;
 
-export const Input = styled.input<{ $showIcon: boolean }>`
-  background-color: ${({theme}) => theme.greenCharleson};
-  color: ${({theme}) => theme.white};
-  padding: 15px 20px;
-  border-radius: 15px;
+export const InputQuestion = styled.input<{ $showIcon: boolean }>`
+  color: ${({theme}) => theme.black};
   width: 100%;
-  padding-left: ${({ $showIcon }) => ($showIcon ? '40px' : '20px')};
+  background-color: ${({theme}) => theme.cultured};
+  font-size: 16px;
 
   @media (max-width: 600px) {
     padding: 10px 15px;
@@ -19,3 +25,7 @@ export const Input = styled.input<{ $showIcon: boolean }>`
     padding-left: ${({ $showIcon }) => ($showIcon ? '40px' : '10px')};
   }
 `;
+
+export const SendButton = styled.button``;
+
+export const SendButtonIcon = styled.img``;

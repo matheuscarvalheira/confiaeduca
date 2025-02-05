@@ -7,6 +7,8 @@ import CustomHeader from "@/components/CustomHeader";
 import { AuthContext } from "@/contexts/auth-context";
 import { Button } from "@/components/button";
 import { theme } from "@/styles/theme";
+import { Input } from "@/components/input";
+import { InputQuestion } from "@/components/inputQuestion";
 
 export const SalaVirtualTemplate: FC = () => {
   const items = [
@@ -73,18 +75,18 @@ export const SalaVirtualTemplate: FC = () => {
           isAnswered={(item) => item.resposta != '' ? true : false}
         />
       </WrapperScroll>
-      { userType =='professor' &&
-                    <S.ButtonContainer>
-                        <Button 
-                            text="Fechar sala virtual"
-                            buttonType="action-button"
-                              style={{
-                                margin: 0,
-                                color: theme.white
-                            }}
-                        />
-                    </S.ButtonContainer>
-                }
+      { userType =='professor' ?
+        <S.ButtonContainer>
+          <Button 
+            text="Fechar sala virtual"
+            buttonType="action-button"
+            style={{
+              margin: 0,
+              color: theme.white
+           }}
+          />
+        </S.ButtonContainer>
+      : <InputQuestion/> }
                 
     </S.SalaVirtual>
   )

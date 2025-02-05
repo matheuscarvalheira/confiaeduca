@@ -1,10 +1,11 @@
-import { ReactNode, useRef, useState, MutableRefObject } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { AccordionProps } from "./props";
 import * as S from './styles';
 import { TriangleSvg } from "../triangleSvg";
-import FavoriteButton from "../FavoriteButton";
 import SaveButton from "../SaveButton";
 import LikeButton from "../LikeButton/indext";
+import { Textarea } from "../textarea";
+import { Button } from "../button";
 
 export const Accordion = <T,>({ items, renderHeader, renderContent, isAnswered }: AccordionProps<T>): ReactNode => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -32,7 +33,13 @@ export const Accordion = <T,>({ items, renderHeader, renderContent, isAnswered }
                 contentWrapperRefs.current[index] = el;
               }}
             >
-              {renderContent(item)}
+              {isAnswered(item) ? renderContent(item) :
+                <S.Form>
+                  <Textarea onChange={function (event: React.ChangeEvent<HTMLTextAreaElement>): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <Button text="Responder"/>
+                </S.Form>}
               <S.ButtonsContainer>
                 <LikeButton/>
                 <SaveButton/>
