@@ -5,4 +5,5 @@ export interface AccordionProps<T> {
   renderHeader: (item: T) => ReactNode;
   renderContent: (item: T) => ReactNode;
   isAnswered: (item: T) => boolean;
+  userType: 'professor' | 'aluno' | undefined
 }

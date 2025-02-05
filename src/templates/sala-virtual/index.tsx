@@ -2,12 +2,10 @@ import { Accordion } from "@/components/accordion";
 import { FC, useContext } from "react";
 import * as S from './styles'
 import { WrapperScroll } from "@/components/wrapperScroll";
-import { Header } from "@/components/Header";
 import CustomHeader from "@/components/CustomHeader";
 import { AuthContext } from "@/contexts/auth-context";
 import { Button } from "@/components/button";
 import { theme } from "@/styles/theme";
-import { Input } from "@/components/input";
 import { InputQuestion } from "@/components/inputQuestion";
 
 export const SalaVirtualTemplate: FC = () => {
@@ -73,6 +71,7 @@ export const SalaVirtualTemplate: FC = () => {
           renderHeader={(item) => <S.Header>{item.pergunta}</S.Header>}
           renderContent={(item) => <S.Content>{item.resposta}</S.Content>}
           isAnswered={(item) => item.resposta != '' ? true : false}
+          userType={userType}
         />
       </WrapperScroll>
       { userType =='professor' ?

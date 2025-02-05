@@ -45,8 +45,9 @@ export const ButtonsContainer = styled.div`
   padding-top: 20px;
 `;
 
-export const Form = styled.div`
-display: flex;
-flex-direction: column;
-align-items: flex-end;
+export const Form = styled.div<{ isTeacher: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: ${({ isTeacher }) => (isTeacher ? 'flex-end' : 'flex-start')};;
 `;
+
