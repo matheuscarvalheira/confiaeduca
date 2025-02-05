@@ -28,15 +28,15 @@ export function AuthProvider({ children }: AuthProviderProps){
     const [userType , setUserType] = useState<'professor' | 'aluno' | undefined>(undefined)
 
     useEffect(() => {
-        const { 'ConfiaEduca.UserType': cookieUserType } = parseCookies()
-        setUserType(cookieUserType as 'professor' | 'aluno' | undefined)
-        const accessFree = FREE_ACCESS_PATHNAMES.includes(pathname)
-        if (!accessFree) {
-            if (userType == undefined) {
-                router.push('/login')
-            }
+        if (!FREE_ACCESS_PATHNAMES.includes(pathname)) {
+          const { 'ConfiaEduca.UserType': cookieUserType } = parseCookies();
+          if (!cookieUserType) {
+            router.push('/login');
+            return;
+          }
+          setUserType(cookieUserType as 'professor' | 'aluno');
         }
-    }, [pathname])
+    }, [pathname]);
 
     function signIn(email: string, senha: string): boolean{
         const account = accountsMock.find(account => account.email === email && account.senha === senha)
