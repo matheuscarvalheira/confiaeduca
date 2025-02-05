@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "@/styles/theme";
 
 export const SalaVirtual = styled.div`
   display: flex;
@@ -12,5 +13,20 @@ export const Header = styled.p`
 `;
 
 export const Content = styled.div`
+
+`;
+
+export const ButtonContainer = styled.div`
+  width: 75%;
+  bottom: 0;
+  display: flex;
+  padding: 15px 10px;
+  position: absolute;
+  justify-content: flex-end;
+  background-color: ${theme.white};
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 
 `;

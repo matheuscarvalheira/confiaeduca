@@ -5,6 +5,8 @@ import { WrapperScroll } from "@/components/wrapperScroll";
 import { Header } from "@/components/Header";
 import CustomHeader from "@/components/CustomHeader";
 import { AuthContext } from "@/contexts/auth-context";
+import { Button } from "@/components/button";
+import { theme } from "@/styles/theme";
 
 export const SalaVirtualTemplate: FC = () => {
   const items = [
@@ -58,7 +60,7 @@ export const SalaVirtualTemplate: FC = () => {
     }
   ]
 
-    // const {useType} = useContext(AuthContext);
+    const {userType} = useContext(AuthContext);
 
   return (
     <S.SalaVirtual>
@@ -71,6 +73,19 @@ export const SalaVirtualTemplate: FC = () => {
           isAnswered={(item) => item.resposta != '' ? true : false}
         />
       </WrapperScroll>
+      { userType =='professor' &&
+                    <S.ButtonContainer>
+                        <Button 
+                            text="Fechar sala virtual"
+                            buttonType="action-button"
+                              style={{
+                                margin: 0,
+                                color: theme.white
+                            }}
+                        />
+                    </S.ButtonContainer>
+                }
+                
     </S.SalaVirtual>
   )
 }
