@@ -7,14 +7,17 @@ import LikeButton from "../LikeButton/indext";
 import { Textarea } from "../textarea";
 import { Button } from "../button";
 
-export const Accordion = <T,>({
+export const Accordion = <T extends { id: number }>({
   items,
   renderHeader,
   renderContent,
   isAnswered,
   userType,
+  handleAnswer,
 }: AccordionProps<T>): ReactNode => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const [textArea, setTextArea] = useState<string>("");
 
   const contentWrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -25,7 +28,7 @@ export const Accordion = <T,>({
   return (
     <S.AccordionList>
       {items.map((item, index) => (
-        <S.Accordion key={index} $answered={isAnswered(item)}>
+        <S.Accordion key={item.id} $answered={isAnswered(item)}>
           <S.Header onClick={() => handleClick(index)}>
             {renderHeader(item)}
             <TriangleSvg
@@ -47,17 +50,14 @@ export const Accordion = <T,>({
               {isAnswered(item) ? (
                 renderContent(item)
               ) : (
-                <S.Form isTeacher={userType === "professor"}>
+                <S.Form $isTeacher={userType === "professor"}>
                   {userType === "professor" ? (
                     <>
-                      <Textarea
-                        onChange={function (
-                          event: React.ChangeEvent<HTMLTextAreaElement>
-                        ): void {
-                          throw new Error("Function not implemented.");
-                        }}
+                      <Textarea onChange={(e) => setTextArea(e.target.value)} />
+                      <Button
+                        text="Responder"
+                        onClick={() => handleAnswer(item.id, textArea)}
                       />
-                      <Button text="Responder" />
                     </>
                   ) : userType === "aluno" ? (
                     <span>Essa pergunta ainda não foi respondida.</span>

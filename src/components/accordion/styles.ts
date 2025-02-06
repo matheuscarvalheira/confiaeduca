@@ -7,9 +7,13 @@ export const AccordionList = styled.div`
   gap: 15px;
 `;
 
-export const Accordion = styled.div<{$answered: boolean}>`
-  background-color: ${({ theme, $answered }) =>$answered ? theme.white : theme.cultured};
-  border: ${({ theme, $answered }) =>$answered ? `3px solid ${theme.greenScreamin}` : `3px solid ${theme.cultured}`};
+export const Accordion = styled.div<{ $answered: boolean }>`
+  background-color: ${({ theme, $answered }) =>
+    $answered ? theme.white : theme.cultured};
+  border: ${({ theme, $answered }) =>
+    $answered
+      ? `3px solid ${theme.greenScreamin}`
+      : `3px solid ${theme.cultured}`};
   border-radius: 10px;
 `;
 
@@ -25,8 +29,12 @@ export const Header = styled.div`
   }
 `;
 
-export const Content = styled.div<{ $open: boolean; $contentWrapperHeight: number }>`
-  height: ${({ $open, $contentWrapperHeight }) => ($open ? `${$contentWrapperHeight}px` : '0')};
+export const Content = styled.div<{
+  $open: boolean;
+  $contentWrapperHeight: number;
+}>`
+  height: ${({ $open, $contentWrapperHeight }) =>
+    $open ? `${$contentWrapperHeight}px` : "0"};
   overflow: hidden;
   transition: height 0.3s ease;
 `;
@@ -45,9 +53,8 @@ export const ButtonsContainer = styled.div`
   padding-top: 20px;
 `;
 
-export const Form = styled.div<{ isTeacher: boolean }>`
+export const Form = styled.div<{ $isTeacher: boolean }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ isTeacher }) => (isTeacher ? 'flex-end' : 'flex-start')};;
+  align-items: ${({ $isTeacher }) => ($isTeacher ? "flex-end" : "flex-start")};
 `;
-

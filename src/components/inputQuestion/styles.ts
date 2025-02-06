@@ -4,7 +4,7 @@ export const InputQuestionContainer = styled.div`
   width: 78%;
   position: relative;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;

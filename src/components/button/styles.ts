@@ -7,6 +7,7 @@ export const Button = styled.button<{ buttontype?: 'open-modal' | 'action-button
   padding: 10px 25px;
   border-radius: 15px;
   margin: 10px;
+  color: ${({theme}) => theme.white};
 
   @media (max-width: 600px) {
     font-size: 15px;

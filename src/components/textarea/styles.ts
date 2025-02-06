@@ -17,7 +17,7 @@ export const Textarea = styled.textarea`
   background-color: ${({theme}) => theme.greenCharleson};
   resize: none;
   height: 200px;
-  color: ${({theme}) => theme.white};
+  color: ${({theme}) => theme.black};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 600px) {

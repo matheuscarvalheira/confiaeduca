@@ -6,7 +6,7 @@ import { Modal } from "@/components/modal";
 import * as S from "./styles";
 import { AuthContext } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
-import { ToastError } from "@/utils/toast-error";
+import { ToastError } from "@/utils/toast-messages";
 
 export const LoginTemplate: FC = () => {
   

@@ -7,4 +7,5 @@ export interface InputQuestionProps {
   required?: boolean
   value?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  sendAnswer: (value: string) => void;
 }

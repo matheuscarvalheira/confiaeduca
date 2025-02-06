@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { InputQuestionProps } from './props';
 import * as S from './styles';
 
-export const InputQuestion = ({ placeholder = 'Faça sua pergunta!', showIcon = false, ...props }: InputQuestionProps) => {
+export const InputQuestion = ({ placeholder = 'Faça sua pergunta!', showIcon = false, sendAnswer, ...props }: InputQuestionProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +19,10 @@ export const InputQuestion = ({ placeholder = 'Faça sua pergunta!', showIcon = 
         $showIcon={showIcon}
         {...props}
       />
-      <S.SendButton>
+      <S.SendButton onClick={() => {
+        sendAnswer(inputValue);
+        setInputValue('');
+      }}>
         <S.SendButtonIcon src={'./svg/send-question.svg'}/>
       </S.SendButton>
     </S.InputQuestionContainer>

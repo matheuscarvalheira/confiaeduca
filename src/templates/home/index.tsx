@@ -39,8 +39,6 @@ export const HomeTemplate = () => {
 
   const {userType} = useContext(AuthContext);
 
-  const {userType} = useContext(AuthContext);
-
   const classesTeacher = [
     { id: "e8fc0e3a-16e0-45c6-a1e8-e4a7ee048dd0", title: "5°A Matematica" },
     { id: "47d45616-cdad-4e5b-9a2b-f4588f543982", title: "5°A Matematica" },
@@ -61,7 +59,6 @@ export const HomeTemplate = () => {
   ];
 
   const classList = userType === 'professor' ? classesTeacher : classesStudent;
-  const classList = userType === 'professor' ? classesTeacher : classesStudent;
 
   return (
     <div
@@ -76,7 +73,6 @@ export const HomeTemplate = () => {
       }}
     >
       <CustomHeader
-        title={`Bem vindo, ${userType === 'professor' ? "Professor" : "Aluno"}!`}
         title={`Bem vindo, ${userType === 'professor' ? "Professor" : "Aluno"}!`}
         subtitle="Selecione a turma desejada"
       />
