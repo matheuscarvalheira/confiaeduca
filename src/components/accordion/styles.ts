@@ -44,3 +44,10 @@ export const ButtonsContainer = styled.div`
   gap: 15px;
   padding-top: 20px;
 `;
+
+export const Form = styled.div<{ isTeacher: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: ${({ isTeacher }) => (isTeacher ? 'flex-end' : 'flex-start')};;
+`;
+
